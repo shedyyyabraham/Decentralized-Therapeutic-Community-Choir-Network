@@ -440,5 +440,3 @@
     (ok true)
   )
 )
-
-;; Contract initialization will be done through deployment script or first function call
