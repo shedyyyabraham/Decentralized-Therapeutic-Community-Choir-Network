@@ -424,18 +424,6 @@
 )
 
 ;; Admin Functions
-(define-public (initialize-contract)
-  (begin
-    (asserts! (is-eq tx-sender CONTRACT_OWNER) ERR_UNAUTHORIZED)
-    (map-set facilitator-credentials CONTRACT_OWNER {
-      certified: true,
-      specializations: (list (u"trauma-informed-care") (u"music-therapy") (u"community-healing") (u"vocal-development") (u"group-dynamics")),
-      experience-years: u10,
-      certification-expiry: (+ stacks-block-height u52560), ;; ~1 year
-      community-rating: u100
-    })
-    (ok true)))
-
 (define-public (set-contract-uri (uri (string-utf8 256)))
   (begin
     (asserts! (is-eq tx-sender CONTRACT_OWNER) ERR_UNAUTHORIZED)
